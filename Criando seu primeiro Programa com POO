@@ -1,0 +1,42 @@
+# @title Texto de título padrão
+class Bicicleta:
+  def __init__(self, cor, modelo, ano, valor):
+    self.cor = cor
+    self.modelo = modelo
+    self.ano = ano
+    self.valor = valor
+    self.marcha = 1 # Initialize with a default gear
+
+  def buzinar(self):
+    print('Plim plim...')
+
+  def parar(self):
+    print('Parando bicicleta...')
+    print('Bicicleta parada!')
+
+  def correr(self):
+    print('Vrummmmm...')
+
+  def trocar_marcha(self, nro_marcha):
+    print(f'Trocando para a marcha {nro_marcha}...')
+    self.marcha = nro_marcha # Update the gear
+
+  #def __str__(self):
+   # return f'Bicicleta: {self.cor}, {self.modelo}, {self.ano}, R$ {self.valor:.2f}'
+
+  def __str__(self):
+    attributes = ', '.join([f'{chave}={valor}' for chave, valor in self.__dict__.items()])
+    return f'{self.__class__.__name__}: {attributes}'
+
+#b1 = Bicicleta('Vermelha', 'Caloi', 2023, 600)
+
+#b1.buzinar()
+#b1.correr()
+#b1.parar()
+
+#print(b1.cor, b1.modelo, b1.ano, b1.valor)
+
+b2 = Bicicleta('Verde', 'Monark', 2000, 189)
+#print(b2)
+b2.trocar_marcha(5) # Provide an argument for nro_marcha
+print(b2) # Print the updated object to see the gear change
